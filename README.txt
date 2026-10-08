@@ -1,4 +1,4 @@
-記帳 app 上線檔案（v12）
+記帳 app 上線檔案（v12b）
 
 這個資料夾裡的所有檔案要「一起」放到網頁空間，不能少：
 index.html、manifest.webmanifest、sw.js、icon-192.png、icon-512.png、apple-touch-icon.png

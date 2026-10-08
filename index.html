@@ -192,7 +192,8 @@ var $=function(i){return document.getElementById(i)},fmt=function(n){return 'NT$
 var esc=function(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
 var S=null;try{S=JSON.parse(localStorage.getItem(K)||'null')}catch(e){}
 function norm(o){if(!o.subs)o.subs={};if(!o.catc)o.catc={};if(!o.goals)o.goals=[];if(o.pin===undefined)o.pin='';if(!o.fixed)o.fixed=[];if(!o.pays)o.pays=['代收代辦','現金'];if(!o.theme)o.theme='auto';if(!o.budget)o.budget={total:0,cats:{}};if(!o.budget.cats)o.budget.cats={};if(!o.quick)o.quick=[];if(!o.cards)o.cards=[];if(!o.cpay)o.cpay=[];if(!o.xf)o.xf=[];if(!o.alert)o.alert={on:true,low:5000};if(!o.fold)o.fold={};if(!o.review)o.review={on:false,seen:''};o.goals.forEach(function(g){if(!g.alloc)g.alloc={}});return o}
-if(!S)S=seed();norm(S);var UID=Date.now();
+function blank(){return{items:[],banks:[],cats:{exp:['餐飲','交通','購物','娛樂','居家','其他'],inc:['薪資','獎金','投資','其他']}}}
+if(!S)S=blank();norm(S);var UID=Date.now();
 function seed(){var r=7,rnd=function(){r=(r*9301+49297)%233280;return r/233280},it=[],id=1,PM=['現金','現金','b:1','b:2','b:3','c:1','c:1'];
 function A(t,a,c,n,y,m,d,sb,pm){var o={id:id++,t:t,a:Math.round(a),c:c,n:n,d:y+'-'+p(m)+'-'+p(d)};if(sb)o.s=sb;if(pm)o.pm=pm;it.push(o)}
 var P=function(){return PM[Math.floor(rnd()*PM.length)]},POOL=[['餐飲','午餐','午餐',100,200],['餐飲','晚餐','晚餐',150,300],['餐飲','手搖','飲料',50,70],['餐飲','','零食',40,100],['交通','捷運','',30,50],['交通','計程車','',150,150],['購物','','',200,1300],['娛樂','','',150,750]];
